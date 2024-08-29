@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comparison Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <div class="form-container">
+            <p>Original Text: {{ original_text }}</p>
+            <ul>
+                {% for text, score in compared_texts %}
+                <li>{{ text }} - Score: {{ score }}</li>
+                {% endfor %}
+            </ul>
+            <a href="/">Compare More Texts</a>
+        </div>
+    </div>
+</body>
+</html>
+

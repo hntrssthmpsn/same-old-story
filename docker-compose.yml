@@ -1,0 +1,30 @@
+services:
+  embeddings:
+    build: ./embeddings
+    ports:
+      - "5005:5000"
+    environment:
+      - MODEL_PATH=/app_data/saved-model
+      # Uncomment the next 3 lines to download the model and save it at MODEL_PATH
+      - ALLOW_DOWNLOAD_MODEL=True
+      - MODEL_DOWNLOAD_URL=https://tfhub.dev/google/universal-sentence-encoder-large/5
+      - GUNICORN_TIMEOUT=90
+    volumes:
+      # Mount a local directory for the model. Handy to nest under .pipeline 
+      # as the .gitignore in this repo will ignore it. Mount point should match
+      # MODEL_PATH
+      - ./.pipeline/app_data/:/app_data/
+  compare:
+    build: ./compare
+    ports:
+      - "5006:5000"
+  web:
+    build: ./web
+    ports:
+      - "5007:5000"
+    environment:
+      - EMBEDDINGS_SERVICE_URL=http://embeddings:5000/embeddings
+      - COMPARE_SERVICE_URL=http://compare:5000/compare
+    depends_on:
+      - embeddings
+      - compare

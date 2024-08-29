@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SOS Text Comparison Demo</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>SOS Text Comparison Demo</h1>
+        <div class="form-container">
+            <form method="post">
+                <div>
+                    Enter an arbitrary text sample here:<br>
+                    <textarea name="sample_text"></textarea>
+                </div>
+                <div>
+                    Enter three sentences here to compare to your sample:<br>
+                    <textarea name="text1"></textarea><br>
+                    <textarea name="text2"></textarea><br>
+                    <textarea name="text3"></textarea><br>
+                </div>
+                <div>
+                    <input type="submit" value="Compare">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
