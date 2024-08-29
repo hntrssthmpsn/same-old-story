@@ -38,7 +38,7 @@ This project is developed using Flask to create microservices and TensorFlow and
 
 The docker-compose file at the root of this repository defines a fully functional deployment and is the easiest way to run the same old story microservices locally.
 
-[!Warning] Note that by default, the embeddings service as configured in the dockerfile will download the Universal Sentence Encoder Large model to its local filesystem. This is a nontrivial download at almost 600MB. By default, we store the downloaded model in a docker volume, so that subsequent runs initiated via our docker-compose file will use the previously downloaded model. This behavior can be customized in docker-compose.yml.
+[!WARNING] Note that by default, the embeddings service as configured in the dockerfile will download the Universal Sentence Encoder Large model to its local filesystem. This is a nontrivial download at almost 600MB. By default, we store the downloaded model in a docker volume, so that subsequent runs initiated via our docker-compose file will use the previously downloaded model. This behavior can be customized in docker-compose.yml.
 
 - Clone this repository
 - cd to this repo's root
